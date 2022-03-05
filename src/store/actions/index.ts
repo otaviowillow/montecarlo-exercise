@@ -1,0 +1,1 @@
+export { setGamesList} from "./GamesList";
