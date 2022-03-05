@@ -3,8 +3,10 @@
 ## Scafolding
 I went with a nested architecture folder approach instead of a flat one - since I know this is what the company uses.
 
-I've decided to stick with a simple aggregator/elements structure - pages folder for aggregating and initiating the API requests and components as the elements that pages uses to render a view. 
+I've decided to stick with a simple aggregator/elements structure - pages folder for aggregating and components as the elements that pages uses to render a view. 
+
 context and store are where I keep and manipulate the state of my application. 
+
 Hooks is where i keep my use hooks, mainly helpers and service manipulators.
 ### Styling
 Using Material UI, as I know that is what Montecarlo uses. I've tried to stick to it as much as possible.

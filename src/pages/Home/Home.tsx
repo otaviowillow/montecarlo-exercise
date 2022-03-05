@@ -2,23 +2,30 @@
 import { Card, Grid } from '@mui/material'
 import { GamesListProvider } from '../../context'
 import BiggestMetacriticList from '../../components/BiggestMetacriticList/BiggestMetacriticList';
+import { LeastPopularGame } from '../../components';
 
 const Content = (): JSX.Element => {  
   return (
     <Grid container spacing={2}>
       <Grid item xs={4}>
-        <Card>
-          <BiggestMetacriticList />
-        </Card>
+        <GamesListProvider>
+          <LeastPopularGame platform='pc' />
+        </GamesListProvider>
       </Grid>
       <Grid item xs={4}>
-        <Card>xs=4</Card>
+        <GamesListProvider>
+          <LeastPopularGame platform='nintendo' />
+        </GamesListProvider>
       </Grid>
       <Grid item xs={4}>
-        <Card>xs=4</Card>
+        <GamesListProvider>
+          <LeastPopularGame platform='playstation' />
+        </GamesListProvider>
       </Grid>
       <Grid item xs={12}>
-        <Card>xs=8</Card>
+        <GamesListProvider>
+          <BiggestMetacriticList />
+        </GamesListProvider>
       </Grid>
     </Grid>
   )
@@ -26,9 +33,7 @@ const Content = (): JSX.Element => {
 
 const Home = () => {
   return (
-    <GamesListProvider>
-      <Content />
-    </GamesListProvider>
+    <Content />
   )
 }
 

@@ -15,7 +15,7 @@ const MainNav = () => {
           <Menu />
         </IconButton>
         <Typography variant="h5" component="h2" sx={{ flexGrow: 1 }}>
-          Games and stuff
+          Montecarlo test
         </Typography>
       </Toolbar>
     </AppBar>
