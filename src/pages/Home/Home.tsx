@@ -40,7 +40,6 @@ const Home = () => {
           <Grid item xs={12}>
             <GamesListProvider>
               <>
-                <Typography variant="h2">Top 5 Worst games of all time - Cross platforms</Typography>
                 <WorstGamesList />
               </>
             </GamesListProvider>

@@ -16,6 +16,8 @@ const reducer = (state = initialState, action: GamesListAction = { type: null })
 				...state,
         ...action.games
 			};
+    case GamesListActionTypes.RESET_GAMES:
+			return initialState;
 		default: {
 			throw new Error(`Error on reducer: Unhandled action type ${action.type}`);
 		}

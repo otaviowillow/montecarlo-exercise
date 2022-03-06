@@ -1,1 +1,1 @@
-export { setGamesList} from "./GamesList";
+export { resetGamesList, setGamesList} from "./GamesList";

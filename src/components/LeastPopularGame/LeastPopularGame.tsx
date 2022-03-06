@@ -13,8 +13,8 @@ const LeastPopularGame = ({ platform }: { platform: "nintendo" | "playstation" |
   const gotoDetails = () => results && navigate(`/game/${results[0].id}`)
 
   useEffect(() => {
-    const platforms = { nintendo: 7, playstation: 3, xbox: 2, pc: 1 } // RAWG services uses integer for platforms
-    if(!results && !isFetching) fetchGamesList({ ordering: "metacritic", platforms: platforms[platform] });
+    const platforms = { nintendo: "7", playstation: "3", xbox: "2", pc: "1" } // RAWG services uses integer for platforms
+    if(!results && !isFetching) fetchGamesList({ ordering: "metacritic", parent_platforms: platforms[platform] });
   }, [results, fetchGamesList, isFetching, platform])
   
   if(!results) return (

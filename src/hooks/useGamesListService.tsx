@@ -5,7 +5,8 @@ import { setGamesList } from "../store/actions";
 
 interface IfetchGamesList {
   ordering?: "name" | "released" | "added" | "created" | "updated" | "rating" | "metacritic";
-  platforms?: number;
+  dates?: string;
+  parent_platforms?: string;
 }
 
 interface IuseGamesList {
