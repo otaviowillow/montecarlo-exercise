@@ -1,4 +1,18 @@
+# Monte Carlo Test
+An app for Monte Carlo
+https://montecarlo-op.netlify.app/
+## Available scripts
+#### `yarn`
+To install the app
+Uncomment the `_.env` variable to `.env`
+#### `yarn start`
+To run a local build.
 
+#### `yarn test`
+To run jest tests.
+
+#### `yarn build`
+To run a production build
 # Architecture
 ## Scafolding
 I went with a nested architecture folder approach instead of a flat one - since I know this is what the company uses.
