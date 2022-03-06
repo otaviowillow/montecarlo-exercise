@@ -5,7 +5,7 @@
 import { ReactNode, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { lightBlue } from '@mui/material/colors';
-import { LinearProgress, MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
+import { MenuItem, Select, SelectChangeEvent, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 
 import { useGamesListDispatch, useGamesListState } from '../../context';
@@ -15,7 +15,7 @@ import { resetGamesList } from '../../store/actions';
 
 const WorstGamesList = (): JSX.Element | null => {
   const [ dataset, setDataset ] = useState<{x: string, y: number}[] | null>();
-  const [ dates, setDates ] = useState("2019-01-01,2019-12-31");
+  const [ dates, setDates ] = useState("2019-01-01,2021-12-31");
   const [ parent_platforms, setPlatforms ] = useState("1,2,3,7");
   const navigate = useNavigate();
   const { results } = useGamesListState();
@@ -28,7 +28,7 @@ const WorstGamesList = (): JSX.Element | null => {
   useEffect(() => {
     const handleDataset = async () => {
       const { results } = await fetchGamesList({ ordering: "metacritic", dates, parent_platforms });
-      results && setDataset(results.slice(0, 5).map(({ name, metacritic }, i) => ({ x: name, y: metacritic  })))
+      results && setDataset(results.slice(0, 5).map(({ name, metacritic, id }, i) => ({ x: name, y: metacritic, id  })))
     }
     if(!results && !isFetching) handleDataset();
   }, [results, fetchGamesList, isFetching, dates, parent_platforms])
@@ -56,18 +56,15 @@ const WorstGamesList = (): JSX.Element | null => {
           <MenuItem value={"7"}>Nintendo</MenuItem>
         </Select>
       </Box>
-      {isFetching ? (
-        <LinearProgress />
-      ) : (
-        <ResponsiveContainer width="100%" height={400}>
+      <Typography variant="h5" marginRight={2}>Numbers are from Metacritic</Typography>
+        <ResponsiveContainer width="100%" minHeight={500}>
         <BarChart data={dataset || []} layout="horizontal">
-          <Bar dataKey="y" fill={lightBlue[700]} onClick={(e) => results && navigate(`/game/${results[e.payload.y].id}`)}  style={{ cursor: "pointer" }}>
+          <Bar dataKey="y" fill={lightBlue[700]} onClick={(e) => results && navigate(`/game/${e.payload.id}`)}  style={{ cursor: "pointer" }}>
             <LabelList dataKey="x" position="outside" fontSize={20} />
             <LabelList dataKey="y" position="top" fontSize={30} />
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      )}
     </Box>
   )
 }

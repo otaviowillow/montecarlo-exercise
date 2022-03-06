@@ -16,7 +16,6 @@ const Home = () => {
     <>
       <Box padding={2} bgcolor={lightBlue[200]}>
         <Typography gutterBottom variant="h2">Welcome to the worst games that have ever existed! (according to Metacritic)</Typography>
-        <Typography variant="body1">Even though I didn't really had any good ideas on where to use some useful visualization data, I still wanted to show a code example for you so I've forced it a litte bit on the top 5 down there, hope you don't mind</Typography>
       </Box>
       <Box padding={2}>
         <Grid container spacing={2}>
