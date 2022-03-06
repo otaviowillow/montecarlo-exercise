@@ -1,2 +1,5 @@
 export { default as MainNav } from './MainNav/MainNav'
+export { default as GameHero } from './GameHero/GameHero'
+export { default as GamePhotos } from './GamePhotos/GamePhotos'
 export { default as LeastPopularGame } from './LeastPopularGame/LeastPopularGame'
+export { default as WorstGamesList } from './WorstGamesList/WorstGamesList'

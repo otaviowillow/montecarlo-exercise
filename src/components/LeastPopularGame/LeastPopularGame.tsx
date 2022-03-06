@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, LinearProgress, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +17,11 @@ const LeastPopularGame = ({ platform }: { platform: "nintendo" | "playstation" |
     if(!results && !isFetching) fetchGamesList({ ordering: "metacritic", platforms: platforms[platform] });
   }, [results, fetchGamesList, isFetching, platform])
   
-  if(!results) return <p>loading</p>;
+  if(!results) return (
+    <Card>
+      <LinearProgress />
+    </Card>
+  );
 
   return (
     <Card>
@@ -26,7 +30,7 @@ const LeastPopularGame = ({ platform }: { platform: "nintendo" | "playstation" |
           component="img"
           height="240"
           image={results[0].background_image}
-          alt="worst metacritic PSN"
+          alt="Game cover"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

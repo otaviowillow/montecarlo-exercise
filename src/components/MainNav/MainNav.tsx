@@ -15,7 +15,7 @@ const MainNav = () => {
           <Menu />
         </IconButton>
         <Typography variant="h5" component="h2" sx={{ flexGrow: 1 }}>
-          Montecarlo test
+          Monte Carlo Test
         </Typography>
       </Toolbar>
     </AppBar>

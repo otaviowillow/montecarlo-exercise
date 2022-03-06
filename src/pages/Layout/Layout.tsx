@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
-import { green, purple } from '@mui/material/colors';
+import { lightBlue, purple } from '@mui/material/colors';
 import { MainNav } from '../../components'
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: purple[300],
+      main: lightBlue[700],
     },
     secondary: {
-      main: green[300],
+      main: purple[300],
     },
   },
 });

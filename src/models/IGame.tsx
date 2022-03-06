@@ -1,5 +1,5 @@
 type IGame = {
-  id: 0,
+  id: number | null,
   slug: string,
   name: string,
   released: string,
@@ -15,13 +15,16 @@ type IGame = {
   metacritic: number,
   playtime: number,
   suggestions_count: number,
-  updated: Date,
+  updated: Date | null,
   esrb_rating: {
     id: number,
     slug: string,
     name: string
   },
-  platforms: []
+  platforms: [],
+  description?: string | null;
+  description_raw?: string | null;
+  developers?: { name: string }[];
 };
 
 export default IGame

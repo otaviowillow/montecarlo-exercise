@@ -18,9 +18,7 @@ const useGamesListService = (): IuseGamesList => {
   const dispatch = useGamesListDispatch();
 
 	const fetchGamesList = async (params: IfetchGamesList) => {
-    const initialParams = {
-      metacritic: "1,100"
-    }
+    const initialParams = { metacritic: "1,100" }
     const qs = Object.entries({...initialParams, ...params}).map(([key, val]) => `${key}=${encodeURIComponent(val)}`).join('&')
 		setIsFetching(true);
     const res = await (await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_RAWG_API}&${qs}`)).json();
