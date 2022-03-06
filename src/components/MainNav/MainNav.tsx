@@ -5,7 +5,7 @@ const MainNav = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton
+        {/* <IconButton
           size="large"
           edge="start"
           color="inherit"
@@ -13,7 +13,7 @@ const MainNav = () => {
           sx={{ mr: 2 }}
         >
           <Menu />
-        </IconButton>
+        </IconButton> */}
         <Typography variant="h5" component="h2" sx={{ flexGrow: 1 }}>
           Monte Carlo Test
         </Typography>

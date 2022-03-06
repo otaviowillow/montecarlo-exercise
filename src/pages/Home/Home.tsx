@@ -22,17 +22,17 @@ const Home = () => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <GamesListProvider>
               <LeastPopularGame platform='pc' />
             </GamesListProvider>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <GamesListProvider>
               <LeastPopularGame platform='nintendo' />
             </GamesListProvider>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <GamesListProvider>
               <LeastPopularGame platform='playstation' />
             </GamesListProvider>
