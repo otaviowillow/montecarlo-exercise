@@ -4,7 +4,7 @@ https://montecarlo-op.netlify.app/
 ## Available scripts
 #### `yarn`
 To install the app
-Uncomment the `_.env` variable to `.env`
+
 #### `yarn start`
 To run a local build.
 

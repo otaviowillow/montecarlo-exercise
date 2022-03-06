@@ -1,5 +1,4 @@
-import { AppBar, Toolbar, IconButton, Typography } from '@mui/material';
-import { Menu } from '@mui/icons-material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 const MainNav = () => {
   return (
