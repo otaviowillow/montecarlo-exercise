@@ -5,7 +5,7 @@ import { GameActions, GameActionTypes } from "../actions/Game";
 const initialState: IBestseller = {
 	Name: null,
   Platform: "",
-  Year_of_Release: "",
+  Year_of_Release: 1980,
   Genre: "",
   Publisher: null,
   NA_Sales: null,
