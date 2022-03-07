@@ -1,5 +1,5 @@
 interface IBestseller {
-  Name: string;
+  Name: string | null;
   Platform: string;
   Year_of_Release: string;
   Genre: string;

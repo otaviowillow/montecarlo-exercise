@@ -9,32 +9,28 @@ interface Props {
 }
 
 const BestsellerState = createContext<IBestsellers | undefined>(undefined);
-const BestsellerDispatch = createContext<Dispatch<BestsellersAction> | undefined>(undefined);
+const BestsellersDispatch = createContext<Dispatch<BestsellersAction> | undefined>(undefined);
 
-const BestsellerProvider = ({ children, state: bestsellerState = initialState }: Props): JSX.Element => {
+const BestsellersProvider = ({ children, state: bestsellerState = initialState }: Props): JSX.Element => {
 	const [state, dispatch] = useReducer(reducer, bestsellerState);
 
 	return (
 		<BestsellerState.Provider value={state}>
-			<BestsellerDispatch.Provider value={dispatch}>{children}</BestsellerDispatch.Provider>
+			<BestsellersDispatch.Provider value={dispatch}>{children}</BestsellersDispatch.Provider>
 		</BestsellerState.Provider>
 	);
 };
 
-const useBestsellerState = (): IBestsellers => {
+const useBestsellersState = (): IBestsellers => {
 	const context = useContext(BestsellerState);
-	if (undefined === context) {
-		throw new Error("Please use within BestsellerStateProvider");
-	}
+	if (undefined === context) throw new Error("Please use within BestsellersStateProvider");
 	return context;
 };
 
-const useBestsellerDispatch = (): React.Dispatch<BestsellersAction> => {
-	const context = useContext(BestsellerDispatch);
-	if (undefined === context) {
-		throw new Error("Please use within BestsellerDispatchProvider");
-	}
+const useBestsellersDispatch = (): React.Dispatch<BestsellersAction> => {
+	const context = useContext(BestsellersDispatch);
+	if (undefined === context) throw new Error("Please use within BestsellersDispatchProvider");
 	return context;
 };
 
-export { BestsellerProvider, useBestsellerState, useBestsellerDispatch };
+export { BestsellersProvider, useBestsellersState, useBestsellersDispatch };

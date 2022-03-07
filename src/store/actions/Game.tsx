@@ -8,9 +8,9 @@ export enum GameActionTypes {
 export type GameActions = {
 	type: GameActionTypes | null;
   game?: IGame;
-	name?: string;
+	name?: string | null;
 };
 
 export const setGameDetails = (game: IGame) => ({ type: GameActionTypes.SET_GAME_DETAILS, game });
 
-export const setGameName = (name: string) => ({ type: GameActionTypes.SET_GAME_NAME, name });
+export const setGameName = (name: string | null) => ({ type: GameActionTypes.SET_GAME_NAME, name });

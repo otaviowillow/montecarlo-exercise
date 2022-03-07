@@ -1,2 +1,2 @@
-export { setBestsellersByPlatform, setBestsellersGames, setPlatform } from "./Bestsellers";
-export { setGameDetails } from "./Game";
+export { setTopGamesByDate, setTopGameByPlatform, setTopGamesByPlatforms, setPlatform } from "./Bestsellers";
+export { setGameDetails, setGameName } from "./Game";

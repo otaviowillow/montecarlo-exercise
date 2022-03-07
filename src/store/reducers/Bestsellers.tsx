@@ -5,7 +5,8 @@ import { BestsellersAction, BestsellersTypes } from "../actions/Bestsellers";
 const initialState: IBestsellers = {
 	platform: null,
 	byPlatforms: null,
-	byGames: null
+	byPlatform: null,
+	byDate: null
 };
 
 const reducer = (state = initialState, action: BestsellersAction = { type: null }): IBestsellers => {
@@ -15,15 +16,20 @@ const reducer = (state = initialState, action: BestsellersAction = { type: null 
 				...state,
         platform: action.platform || null
 			};
-		case BestsellersTypes.SET_BESTSELLERS_BY_PLATFORM:
+		case BestsellersTypes.SET_TOP_GAMES_BY_DATE:
 			return {
 				...state,
-        byPlatforms: action.platforms || null
+        byDate: action.byDate || null
 			};
-		case BestsellersTypes.SET_BESTSELLERS_GAMES:
+		case BestsellersTypes.SET_TOP_GAMES_BY_PLATFORMS:
 			return {
 				...state,
-        byGames: action.games || null
+        byPlatforms: action.byPlatforms || null
+			};
+		case BestsellersTypes.SET_TOP_GAME_BY_PLATFORM:
+			return {
+				...state,
+        byPlatform: action.byPlatform || null
 			};
 		default: {
 			throw new Error(`Error on reducer: Unhandled action type ${action.type}`);

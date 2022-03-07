@@ -1,21 +1,24 @@
-import { INameAndValue } from '../../models'
+import { IBestseller, INameAndValue } from '../../models'
 
 export enum BestsellersTypes {
-	SET_BESTSELLERS_GAMES = "@bestsellers/SET_BESTSELLERS_GAMES",
-	SET_BESTSELLERS_BY_PLATFORM = "@bestsellers/SET_BESTSELLERS_BY_PLATFORM",
+	SET_TOP_GAMES_BY_PLATFORMS = "@bestsellers/SET_TOP_GAMES_BY_PLATFORMS",
+	SET_TOP_GAME_BY_PLATFORM = "@bestsellers/SET_TOP_GAME_BY_PLATFORM",
+	SET_TOP_GAMES_BY_DATE = "@bestsellers/SET_TOP_GAMES_BY_DATE",
 	SET_PLATFORM = "@bestsellers/SET_PLATFORM",
-	SET_GAME_PLATFORM = "@bestsellers/SET_GAME_PLATFORM",
 }
 
 export type BestsellersAction = {
 	type: BestsellersTypes | null;
-  games?: INameAndValue[];
-	platforms?: INameAndValue[];
+	byPlatform?: IBestseller[] | null;
+	byPlatforms?: INameAndValue[] | null;
+	byDate?: INameAndValue[] | null;
 	platform?: string;
 };
 
-export const setBestsellersGames = (games: INameAndValue[]) => ({ type: BestsellersTypes.SET_BESTSELLERS_GAMES, games });
+export const setTopGamesByPlatforms = (byPlatforms: INameAndValue[] | null) => ({ type: BestsellersTypes.SET_TOP_GAMES_BY_PLATFORMS, byPlatforms });
 
-export const setBestsellersByPlatform = (platforms: INameAndValue[]) => ({ type: BestsellersTypes.SET_BESTSELLERS_BY_PLATFORM, platforms });
+export const setTopGameByPlatform = (byPlatform: IBestseller[] | null) => ({ type: BestsellersTypes.SET_TOP_GAME_BY_PLATFORM, byPlatform });
+
+export const setTopGamesByDate = (byDate: INameAndValue[] | null) => ({ type: BestsellersTypes.SET_TOP_GAMES_BY_DATE, byDate });
 
 export const setPlatform = (platform: string) => ({ type: BestsellersTypes.SET_PLATFORM, platform });

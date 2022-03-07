@@ -1,36 +1,27 @@
 
-import { IGame } from "../../models";
+import { IBestseller } from "../../models";
 import { GameActions, GameActionTypes } from "../actions/Game";
 
-const initialState: IGame = {
-	id: 0,
-  slug: "",
-  name: "",
-  released: "",
-  tba: false,
-  background_image: "",
-  rating: 0,
-  rating_top: 0,
-  ratings: {},
-  ratings_count: 0,
-  reviews_text_count: "",
-  added: 0,
-  added_by_status: {},
-  metacritic: 0,
-  playtime: 0,
-  suggestions_count: 0,
-  updated: null,
-  esrb_rating: {
-    id: 0,
-    slug: "",
-    name: ""
-  },
-  platforms: [],
-	description: null,
-	description_raw: null
+const initialState: IBestseller = {
+	Name: null,
+  Platform: "",
+  Year_of_Release: "",
+  Genre: "",
+  Publisher: null,
+  NA_Sales: null,
+  EU_Sales: null,
+  JP_Sales: null,
+  Other_Sales: null,
+  Global_Sales: 0,
+  Critic_Score: null,
+  Critic_Count: null,
+  User_Score: null,
+  User_Count: null,
+  Developer: null,
+  Rating: null,
 };
 
-const reducer = (state = initialState, action: GameActions = { type: null }): IGame => {
+const reducer = (state = initialState, action: GameActions = { type: null }): IBestseller => {
 	switch (action.type) {
 		case GameActionTypes.SET_GAME_DETAILS:
 			return {
@@ -40,7 +31,7 @@ const reducer = (state = initialState, action: GameActions = { type: null }): IG
     case GameActionTypes.SET_GAME_NAME:
 			return {
 				...state,
-        name: action.name || null
+        Name: action.name || null
 			};
 		default: {
 			throw new Error(`Error on reducer: Unhandled action type ${action.type}`);
