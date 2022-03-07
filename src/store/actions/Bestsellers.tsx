@@ -12,7 +12,7 @@ export type BestsellersAction = {
 	byPlatform?: IBestseller[] | null;
 	byPlatforms?: INameAndValue[] | null;
 	byDate?: INameAndValue[] | null;
-	platform?: string;
+	platform?: string | null;
 };
 
 export const setTopGamesByPlatforms = (byPlatforms: INameAndValue[] | null) => ({ type: BestsellersTypes.SET_TOP_GAMES_BY_PLATFORMS, byPlatforms });
@@ -21,4 +21,4 @@ export const setTopGameByPlatform = (byPlatform: IBestseller[] | null) => ({ typ
 
 export const setTopGamesByDate = (byDate: INameAndValue[] | null) => ({ type: BestsellersTypes.SET_TOP_GAMES_BY_DATE, byDate });
 
-export const setPlatform = (platform: string) => ({ type: BestsellersTypes.SET_PLATFORM, platform });
+export const setPlatform = (platform: string | null) => ({ type: BestsellersTypes.SET_PLATFORM, platform });

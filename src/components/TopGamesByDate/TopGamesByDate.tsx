@@ -11,18 +11,20 @@ import { blueGrey } from '@mui/material/colors';
 
 import { useBestsellersDispatch, useBestsellersState } from '../../context';
 import { useBestsellersService } from '../../hooks'
-import { setTopGamesByDate, setPlatform } from '../../store/actions';
+import { setTopGamesByDate, setPlatform, setTopGamesByPlatforms } from '../../store/actions';
 
 import colors from './colors'
+import PieActiveShape from './PieActiveShape';
 
 export const TopGamesByDate = () => {
+  const [ selected, setSelected ] = useState<{ index: number, name: string } | undefined>();
   const [ data, setData ] = useState<{ name: string; value: number; fill: string; }[] | null>();
   const { byDate } = useBestsellersState();
   const { fetchTopByDate, isFetching } = useBestsellersService();
   const dispatch = useBestsellersDispatch();
 
-  const handleClick = ({ name }: { name: string }) => dispatch(setPlatform(name))
-  const label = ({ name }: { name: string }) => name
+  const label = ({ name, index }: { name: string, index: number }) => selected?.index !== index ? name : ""
+  const onSelect = ({ name }: { name: string }, index: number) => selected?.index === index ? setSelected(undefined) : setSelected({ name, index });
 
   useEffect(() => {
     const fetchItem = () => {
@@ -37,16 +39,26 @@ export const TopGamesByDate = () => {
     if(byDate) handleData();
   }, [byDate])
 
+  useEffect(() => {
+    selected?.index || selected?.index === 0 ? dispatch(setPlatform(selected.name)) : dispatch(setTopGamesByPlatforms(null));
+  }, [selected])
+
   if(!data) return null;
 
   return (
-    <>
-      <ResponsiveContainer width="100%" height={500}>
-        <PieChart>
-          <Pie data={data} dataKey="value" nameKey="name" label={label} onClick={handleClick} />
-        </PieChart>
-      </ResponsiveContainer>
-    </>
+    <ResponsiveContainer width="100%" height={500}>
+      <PieChart>
+        <Pie 
+          dataKey="value" 
+          nameKey="name" 
+          data={data} 
+          activeIndex={selected?.index}
+          activeShape={PieActiveShape}
+          label={label} 
+          onMouseUp={onSelect}
+        />
+      </PieChart>
+    </ResponsiveContainer>
   )
 }
 

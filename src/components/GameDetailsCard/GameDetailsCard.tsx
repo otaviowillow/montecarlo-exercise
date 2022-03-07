@@ -1,5 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material';
+import { indigo } from '@mui/material/colors';
 import { useEffect } from 'react'
+import { Bar, BarChart, ResponsiveContainer, XAxis } from 'recharts';
 import { useBestsellersDispatch, useBestsellersState } from '../../context';
 import { useGameDispatch, useGameState } from '../../context/Game';
 import { useBestsellersService } from '../../hooks'
@@ -36,9 +38,14 @@ export const GameDetailsCard = () => {
     <Card>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Top 15 games
+          {byPlatform[0].Name}
         </Typography>
-        {byPlatform[0].Name}
+        <ResponsiveContainer width="100%" height={200}>
+        <BarChart data={byPlatform}>
+          <Bar dataKey="Global_Sales" fill={indigo[300]} label />
+          <XAxis type='category' dataKey="Platform" />
+        </BarChart>
+      </ResponsiveContainer>
       </CardContent>
     </Card>
   )

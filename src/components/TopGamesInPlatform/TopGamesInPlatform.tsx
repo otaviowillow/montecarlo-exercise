@@ -1,3 +1,4 @@
+import { LinearProgress } from '@mui/material';
 import { indigo } from '@mui/material/colors';
 import { useEffect } from 'react'
 import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis } from 'recharts';
@@ -22,6 +23,7 @@ export const BestSellingGames = () => {
 
   useEffect(() => {
     const fetchItem = () => {
+      console.log("fetchTopByPlatform zero platform")
       const res = fetchTopByPlatform({});
       dispatch(setTopGamesByPlatforms(res));
     }
@@ -30,15 +32,14 @@ export const BestSellingGames = () => {
 
   useEffect(() => {
     const fetchItem = () => {
-      if(platform) {
-        const res = fetchTopByPlatform({ platform });
-        dispatch(setTopGamesByPlatforms(res));
-      }
+      console.log("fetchTopByPlatform with platform")
+      const res = fetchTopByPlatform({ platform: platform || "" });
+      dispatch(setTopGamesByPlatforms(res));
     }
     if(platform) fetchItem();
   }, [platform])
 
-  if(!byPlatforms) return null;
+  if(!byPlatforms) return <LinearProgress />;
 
   return (
     <>
