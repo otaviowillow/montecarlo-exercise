@@ -6,6 +6,7 @@ import { MainNav } from '../../components'
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
       main: lightBlue[700],
     },

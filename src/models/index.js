@@ -1,3 +1,5 @@
-export { default as IGamesList } from './IGamesList'
+export { default as IBestsellers } from './IBestsellers'
+export { default as IBestsellingGame } from './IBestsellingGame'
 export { default as IGame } from './IGame'
 export { default as IGameScreenshots } from './IGameScreenshots'
+export { default as INameAndValue } from './INameAndValue'

@@ -1,1 +1,1 @@
-export { resetGamesList, setGamesList} from "./GamesList";
+export { setBestsellersByPlatform, setBestsellersGames, setPlatform } from "./Bestseller";

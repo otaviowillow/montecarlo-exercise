@@ -1,2 +1,2 @@
-export { default as useGamesListService } from './useGamesListService'
+export { default as useBestsellingServices } from './useBestsellingServices'
 export { default as useGameService } from './useGameService'

@@ -1,5 +1,6 @@
+export { default as BestSellingByPlatform } from './BestSellingByPlatform/BestSellingByPlatform'
+export { default as BestSellingGames } from './BestSellingGames/BestSellingGames'
 export { default as MainNav } from './MainNav/MainNav'
 export { default as GameHero } from './GameHero/GameHero'
+export { default as GameOnPlatform } from './GameOnPlatform/GameOnPlatform'
 export { default as GamePhotos } from './GamePhotos/GamePhotos'
-export { default as LeastPopularGame } from './LeastPopularGame/LeastPopularGame'
-export { default as WorstGamesList } from './WorstGamesList/WorstGamesList'

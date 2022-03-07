@@ -1,1 +1,1 @@
-export { GamesListProvider, useGamesListState, useGamesListDispatch } from "./GamesList";
+export { BestsellerProvider, useBestsellerDispatch, useBestsellerState } from "./Bestsellers";
