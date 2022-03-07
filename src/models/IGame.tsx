@@ -1,7 +1,7 @@
 type IGame = {
   id: number | null,
   slug: string,
-  name: string,
+  name: string | null,
   released: string,
   tba: boolean,
   background_image: string,

@@ -32,10 +32,15 @@ const initialState: IGame = {
 
 const reducer = (state = initialState, action: GameActions = { type: null }): IGame => {
 	switch (action.type) {
-		case GameActionTypes.SET_GAME:
+		case GameActionTypes.SET_GAME_DETAILS:
 			return {
 				...state,
         ...action.game
+			};
+    case GameActionTypes.SET_GAME_NAME:
+			return {
+				...state,
+        name: action.name || null
 			};
 		default: {
 			throw new Error(`Error on reducer: Unhandled action type ${action.type}`);

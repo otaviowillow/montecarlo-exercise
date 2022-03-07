@@ -15,13 +15,14 @@ import { setPlatform } from '../../store/actions';
 
 import colors from './colors'
 
-export const BestsellingInfo = () => {
+export const BestSellingByPlatform = () => {
   const [ data, setData ] = useState<{ name: string; value: number; fill: string; }[] | null>();
   const { byPlatforms } = useBestsellerState();
   const { fetchBestSellingByPlatform, isFetching } = useBestsellingServices();
   const dispatch = useBestsellerDispatch();
 
   const handleClick = ({ name }: { name: string }) => dispatch(setPlatform(name))
+  const label = ({ name }: { name: string }) => name
 
   useEffect(() => {
     if(!byPlatforms && !isFetching) fetchBestSellingByPlatform()
@@ -38,11 +39,11 @@ export const BestsellingInfo = () => {
     <>
       <ResponsiveContainer width="100%" height={500}>
         <PieChart>
-          <Pie data={data} dataKey="value" nameKey="name" label={({ name }) => name} onClick={handleClick} />
+          <Pie data={data} dataKey="value" nameKey="name" label={label} onClick={handleClick} />
         </PieChart>
       </ResponsiveContainer>
     </>
   )
 }
 
-export default BestsellingInfo
+export default BestSellingByPlatform

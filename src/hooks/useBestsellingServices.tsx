@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useBestsellerDispatch } from "../context";
-import { IBestsellingGame, INameAndValue } from "../models";
+import { IBestsellingGame, INameAndValue, IBestseller } from "../models";
 import { setBestsellersByPlatform, setBestsellersGames } from "../store/actions";
 
-import data from './vg'
+import data from "./vg"
 
 const YEAR = 2002
 const MAX_GAMES_LIMIT = 15
@@ -11,6 +11,7 @@ const MAX_GAMES_LIMIT = 15
 interface IuseGamesList {
 	fetchBestSellingByPlatform: () => {};
   fetchBestSellingGames: ({ platform }: { platform?: string | undefined; }) => INameAndValue[];
+  fetchGameOnPlatform: ({ game }: { game: string; }) => IBestsellingGame[];
 	isFetching: boolean;
 }
 
@@ -51,7 +52,25 @@ const useGamesListService = (): IuseGamesList => {
 		return res;
 	};
 
-	return { fetchBestSellingByPlatform, fetchBestSellingGames, isFetching };
+  const fetchGameOnPlatform = ({ game }: { game: string }) => {
+    console.log("fetching")
+		setIsFetching(true);
+    const res: IBestsellingGame[] = data.filter((data: IBestsellingGame) => parseInt(data.Year_of_Release) > YEAR && data.Name === game);
+    // const reducedData: IBestSell = filteredData.reduce((result: IBestSell, item: IBestsellingGame) => ({
+    //   ...result,
+    //   [item.Name]: Math.round(item.Global_Sales) + result[item.Name] || Math.round(item.Global_Sales)
+    // }), {});
+    // const arrayData: INameAndValue[] = Object.entries(reducedData).map((entry) => ({ name: entry[0], value: entry[1] }));
+    // const res = arrayData.sort((a, b) => a.value - b.value).reverse().slice(0, MAX_GAMES_LIMIT);
+    // console.log(filteredData)
+    console.log("res", res)
+    // dispatch(setGameOnPlatform(res));
+		setIsFetching(false);
+
+		return res;
+	};
+
+	return { fetchBestSellingByPlatform, fetchBestSellingGames, fetchGameOnPlatform, isFetching };
 };
 
 export default useGamesListService;

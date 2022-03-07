@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGameDispatch } from "../context/Game";
 import { IGame } from "../models";
-import { setGame } from "../store/actions/Game";
+import { setGameDetails } from "../store/actions/Game";
 
 interface IfetchGame {
   id?: string;
@@ -21,7 +21,7 @@ const useGamesListService = (): IuseGamesList => {
 	const fetchGame = async ({ id }: IfetchGame) => {
 		setIsFetching(true);
     const res = await (await fetch(`https://api.rawg.io/api/games/${id}?key=${process.env.REACT_APP_RAWG_API}`)).json();
-    dispatch(setGame(res));
+    dispatch(setGameDetails(res));
 		setIsFetching(false);
 
 		return res;

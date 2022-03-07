@@ -1,4 +1,3 @@
-import IBestsellingGame from "./IBestsellingGame";
 import INameAndValue from "./INameAndValue";
 
 type IBestSellers = {
