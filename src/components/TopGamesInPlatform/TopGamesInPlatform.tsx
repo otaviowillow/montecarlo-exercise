@@ -23,7 +23,6 @@ export const BestSellingGames = () => {
 
   useEffect(() => {
     const fetchItem = () => {
-      console.log("fetchTopByPlatform zero platform")
       const res = fetchTopByPlatform({});
       dispatch(setTopGamesByPlatforms(res));
     }
@@ -32,7 +31,6 @@ export const BestSellingGames = () => {
 
   useEffect(() => {
     const fetchItem = () => {
-      console.log("fetchTopByPlatform with platform")
       const res = fetchTopByPlatform({ platform: platform || "" });
       dispatch(setTopGamesByPlatforms(res));
     }

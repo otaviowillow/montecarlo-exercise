@@ -1,3 +1,5 @@
+import { IRawgGame } from ".";
+
 interface IBestseller {
   Name: string | null;
   Platform: string;
@@ -15,6 +17,7 @@ interface IBestseller {
   User_Count: number | null;
   Developer: string | null;
   Rating: string | null;
+  RawgGame?: IRawgGame | null;
 }
 
 export default IBestseller

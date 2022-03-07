@@ -9,7 +9,7 @@ import { Box, ImageList, ImageListItem } from "@mui/material"
 import { useGameService } from '../../hooks';
 
 const GamePhotos = (): JSX.Element | null => {
-  const [isFetching, setIsFetching] = useState(false);
+  const [ isFetching, setIsFetching ] = useState(false);
   const [ images, setImages ] = useState<string[] | null>();
   const { id } = useParams();
   const { fetchGameScreenshots } = useGameService();

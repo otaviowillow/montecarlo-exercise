@@ -19,14 +19,16 @@ const initialState: IBestseller = {
   User_Count: null,
   Developer: null,
   Rating: null,
+  RawgGame: null
 };
 
 const reducer = (state = initialState, action: GameActions = { type: null }): IBestseller => {
 	switch (action.type) {
 		case GameActionTypes.SET_GAME_DETAILS:
+      console.log(action.game);
 			return {
 				...state,
-        ...action.game
+        RawgGame: action.game
 			};
     case GameActionTypes.SET_GAME_NAME:
 			return {

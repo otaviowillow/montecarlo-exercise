@@ -1,27 +1,32 @@
 import { useState } from "react";
-import { useGameDispatch } from "../context/Game";
-import { IGame } from "../models";
-import { setGameDetails } from "../store/actions/Game";
+import { IRawgGame } from "../models";
 
 interface IfetchGame {
   id?: string;
-  game_pk?: string;
+  search?: string;
 }
 
 interface IuseGamesList {
-	fetchGame: ({ id }: IfetchGame) => Promise<IGame>;
+	fetchRawgGame: ({ id }: IfetchGame) => Promise<IRawgGame>;
+	searchRawgGame: ({ search }: IfetchGame) => Promise<IRawgGame>;
   fetchGameScreenshots: ({ id }: IfetchGame) => Promise<string[]>;
 	isFetching: boolean;
 }
 
 const useGamesListService = (): IuseGamesList => {
 	const [isFetching, setIsFetching] = useState(false);
-  const dispatch = useGameDispatch();
 
-	const fetchGame = async ({ id }: IfetchGame) => {
+	const searchRawgGame = async ({ search }: IfetchGame) => {
+		setIsFetching(true);
+    const { results } = await (await fetch(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_RAWG_API}&search=${search}`)).json();
+		setIsFetching(false);
+
+		return results[0];
+	};
+
+	const fetchRawgGame = async ({ id }: IfetchGame) => {
 		setIsFetching(true);
     const res = await (await fetch(`https://api.rawg.io/api/games/${id}?key=${process.env.REACT_APP_RAWG_API}`)).json();
-    dispatch(setGameDetails(res));
 		setIsFetching(false);
 
 		return res;
@@ -31,10 +36,11 @@ const useGamesListService = (): IuseGamesList => {
 		setIsFetching(true);
     const { results } = await (await fetch(`https://api.rawg.io/api/games/${id}/screenshots?key=${process.env.REACT_APP_RAWG_API}`)).json();
 		setIsFetching(false);
+		
 		return results.map((result: { image: string }) => result.image);
 	};
 
-	return { fetchGame, fetchGameScreenshots, isFetching };
+	return { fetchRawgGame, searchRawgGame, fetchGameScreenshots, isFetching };
 };
 
 export default useGamesListService;

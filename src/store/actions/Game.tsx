@@ -1,4 +1,4 @@
-import { IGame } from '../../models'
+import { IRawgGame } from '../../models'
 
 export enum GameActionTypes {
 	SET_GAME_DETAILS = "@game/SET_GAME_DETAILS",
@@ -7,10 +7,10 @@ export enum GameActionTypes {
 
 export type GameActions = {
 	type: GameActionTypes | null;
-  game?: IGame;
+  game?: IRawgGame | null;
 	name?: string | null;
 };
 
-export const setGameDetails = (game: IGame) => ({ type: GameActionTypes.SET_GAME_DETAILS, game });
+export const setGameDetails = (game: IRawgGame | null) => ({ type: GameActionTypes.SET_GAME_DETAILS, game });
 
 export const setGameName = (name: string | null) => ({ type: GameActionTypes.SET_GAME_NAME, name });
