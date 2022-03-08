@@ -55,6 +55,7 @@ A few architecture rules and best practices I'm following on this exercise
 * Minimizing dependencies - I'm trying to only attach dependencies that are I know are important for the current core functionality of the app that the company is using
 * State manager - I'm using Context API  with a redux oriented approach to state refreshing
 * No prop drilling - All components should have access to a state, and that state dictates what the component should react to - no higher order component, in other words. Props should only be used to initialize data.
+* No ternary on render - If a ternary is needed, just start a dependent component using one of the strenghts of the folder nested approach to folder architecture
 * Simple linting and prettifying
 # TODO / Improvements
 ### This needs a proper Back-end!

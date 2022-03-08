@@ -1,4 +1,3 @@
-import { indigo } from '@mui/material/colors';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
