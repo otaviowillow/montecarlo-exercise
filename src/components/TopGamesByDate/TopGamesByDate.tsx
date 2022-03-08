@@ -25,7 +25,8 @@ export const TopGamesByDate = () => {
   const { fetchTopByDate, isFetching } = useBestsellersService();
   const dispatch = useBestsellersDispatch();
 
-  const label = ({ name, index }: { name: string, index: number }) => selected?.index !== index ? name : ""
+  // const label = ({ name, index }: { name: string, index: number }) => selected?.index !== index ? name : ""
+  const label = ({ name, index }: { name: string, index: number }) => name
   const onMouseUp = ({ name }: { name: string }, index: number) => selected?.index === index ? setSelected(undefined) : setSelected({ name, index });
   
   useMemo(() => {
@@ -66,6 +67,7 @@ export const TopGamesByDate = () => {
               { value: 'Nintendo', type: 'circle', id: 'ID01', color: colors.Wii },
             ]} />
               <Pie 
+                cursor="pointer"
                 dataKey="value" 
                 nameKey="name" 
                 data={data} 

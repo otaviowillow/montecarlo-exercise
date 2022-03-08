@@ -53,7 +53,7 @@ export const BestSellingGames = () => {
           </Typography>
           <ResponsiveContainer width="100%" height={500}>
             <BarChart data={byPlatforms} layout="vertical" margin={{ top: 0, right: 20, bottom: 0, left: 120 }} onClick={handleClick}>
-              <Bar dataKey="value" fill={indigo[300]} label />
+              <Bar cursor="pointer" dataKey="value" fill={indigo[300]} label />
               <XAxis type="number" tick={false} axisLine={false} />
               <YAxis type="category" dataKey="name" tickLine={false} axisLine={false} tickFormatter={tickFormatter} tick={{fontSize: 12}} />
             </BarChart>
