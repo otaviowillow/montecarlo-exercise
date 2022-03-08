@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
+import { Grid } from '@mui/material';
 
-import { GameProvider } from "../../context/Game"
+import { GameProvider } from '../../context/Game';
 import { GameHero, GamePhotos } from '../../components';
 
 const Game = (): JSX.Element => {
@@ -15,7 +15,7 @@ const Game = (): JSX.Element => {
         </Grid>
       </Grid>
     </GameProvider>
-  )
-}
+  );
+};
 
-export default Game
+export default Game;

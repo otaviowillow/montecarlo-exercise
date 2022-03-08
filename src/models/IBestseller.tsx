@@ -1,4 +1,4 @@
-import { IRawgGame } from ".";
+import { IRawgGame } from '.';
 
 interface IBestseller {
   Name: string | null;
@@ -20,4 +20,4 @@ interface IBestseller {
   RawgGame?: IRawgGame | null;
 }
 
-export default IBestseller
+export default IBestseller;

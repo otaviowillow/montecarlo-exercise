@@ -1,12 +1,11 @@
-
-import { IBestseller } from "../../models";
-import { GameActions, GameActionTypes } from "../actions/Game";
+import { IBestseller } from '../../models';
+import { GameActions, GameActionTypes } from '../actions/Game';
 
 const initialState: IBestseller = {
-	Name: null,
-  Platform: "",
+  Name: null,
+  Platform: '',
   Year_of_Release: 1980,
-  Genre: "",
+  Genre: '',
   Publisher: null,
   NA_Sales: null,
   EU_Sales: null,
@@ -22,22 +21,25 @@ const initialState: IBestseller = {
   RawgGame: null
 };
 
-const reducer = (state = initialState, action: GameActions = { type: null }): IBestseller => {
-	switch (action.type) {
-		case GameActionTypes.SET_GAME_DETAILS:
-			return {
-				...state,
+const reducer = (
+  state = initialState,
+  action: GameActions = { type: null }
+): IBestseller => {
+  switch (action.type) {
+    case GameActionTypes.SET_GAME_DETAILS:
+      return {
+        ...state,
         RawgGame: action.game
-			};
+      };
     case GameActionTypes.SET_GAME_NAME:
-			return {
-				...state,
+      return {
+        ...state,
         Name: action.name || null
-			};
-		default: {
-			throw new Error(`Error on reducer: Unhandled action type ${action.type}`);
-		}
-	}
+      };
+    default: {
+      throw new Error(`Error on reducer: Unhandled action type ${action.type}`);
+    }
+  }
 };
 
 export { reducer, initialState };

@@ -17,14 +17,14 @@ To run jest tests.
 To run a production build
 
 # Known Issues
-* When the user clicks to visualize console data, and then clicks again to vizualize the full set of data, there's a perfomance drop with a page freeze. This is due to the sheer size of the JSON file the app is using.
-* Selecting the Pie Chart will sometimes take the user to the top of the screen
+* When the user clicks to visualize a specific console data, and then clicks again to vizualize the "All Platforms" set of data, there's a perfomance drop with a page freeze. This is due to the sheer size of the JSON file the app is using.
+* Clicking on the Pie Chart will sometimes take the user to the top of the screen
 * The **Top 15 Games by Platform** component is not scaling well in responsive views
 
 # Architecture
 ![alt text](https://res.cloudinary.com/practicaldev/image/fetch/s--ZU7TrpjM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/ck4cgie4y8mdr7iefxtt.png)
 
-The fundamental idea here is to have an event driven application, with components there are agnostic to other components.
+The fundamental idea here is to have an event driven application, with components that are agnostic to other components.
 The app fires an event change and components react according to that change, without the need for drilling or component pairing of any kind - the only thing a component listens to is the state, and whenever they need to change something in it, they dispatch an action to do so.
 
 In other words, I'm using a redux implementation (through ContextAPI) with an event driven philosophy.
@@ -40,7 +40,7 @@ The context and store folders are where I keep and manipulate the state of my ap
 
 Hooks is where i keep my use hooks, in this app, it's just service manipulators that function just like the back end.
 ### Styling
-Using Material UI, as I know that is what Montecarlo uses. I've tried to stick to it as much as possible, to the point where I don't know if it was helpful since it has done a lot of the CSS work for me. Please let me know if you'd like to see more CSS from my side, I can arrange that very quickly!
+Using Material UI, as I know that is what Monte Carlo uses (I haven't used it in **many** years). I've tried to stick to it as much as possible, to the point where I don't know if it was helpful since it has done a lot of the CSS work for me. Please let me know if you'd like to see more CSS from my side, I can arrange that very quickly!
 
 ### Routes
 The routing is standard architecture from react-router-dom as of v6, with a Layout wraping around routes
@@ -55,13 +55,13 @@ A few architecture rules and best practices I'm following on this exercise
 * No prop drilling - All components should have access to a state, and that state dictates what the component should react to - no higher order component, in other words. Props should only be used to initialize data.
 
 # TODO / Improvements
-##### This needs a proper Back-end!
+### This needs a proper Back-end!
 For the exercise, I made the conscious decision of handling the data manipulation on the front end, trying to follow through with "Data can be stored and read from a simple JSON file" part of the instruction. In hindsight I should've just built a simple back end (even though I understand that the role is fully front end), since having it there made my life difficult with all the perfomance bottlenecks it generated (my VS Code was going nuts)
 
-##### Consider moving away from Recharts or at least, improving the current graphs
+### Consider moving away from Recharts or at least, improving the current graphs
 I've decided to go with Recharts since I thought it was the closest to the one I use on my day to day (highcharts, paid version) on Honeywell, but as with every chart library, there's a steep learning curve to the library. It was by far the biggest time sink in the test and I'm still unhappy with the results
 
-### What would I do with a day or two 
+## What would I do with a day or two 
 * More charts! More! 
 * I'd like to insert comparisons between publishers (see how they fare against each other), 
 * Change the min-max years... 

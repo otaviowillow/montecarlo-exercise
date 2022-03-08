@@ -11,9 +11,9 @@ const colors: { [key: string]: string } = {
   GBA: red[500],
   Wii: red[500],
   WiiU: red[500],
-  "3DS": red[500],
+  '3DS': red[500],
   DS: red[500],
   GC: red[500]
-}
+};
 
-export default colors
+export default colors;

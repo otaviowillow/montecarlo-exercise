@@ -1,1 +1,5 @@
-export { BestsellersProvider, useBestsellersDispatch, useBestsellersState } from "./Bestsellers";
+export {
+  BestsellersProvider,
+  useBestsellersDispatch,
+  useBestsellersState
+} from './Bestsellers';

@@ -1,6 +1,6 @@
 type INameAndValue = {
-	name: string;
+  name: string;
   value: number;
 };
 
-export default INameAndValue
+export default INameAndValue;

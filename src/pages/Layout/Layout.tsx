@@ -1,19 +1,19 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { createTheme } from '@mui/material/styles';
 import { lightBlue, purple } from '@mui/material/colors';
-import { MainNav } from '../../components'
+import { MainNav } from '../../components';
 
 const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: lightBlue[700],
+      main: lightBlue[700]
     },
     secondary: {
-      main: purple[300],
-    },
-  },
+      main: purple[300]
+    }
+  }
 });
 
 const Layout = (): JSX.Element => {
@@ -24,6 +24,6 @@ const Layout = (): JSX.Element => {
       <Outlet />
     </ThemeProvider>
   );
-}
+};
 
 export default Layout;

@@ -18,7 +18,7 @@ const MainNav = () => {
         </Typography>
       </Toolbar>
     </AppBar>
-  )
-}
+  );
+};
 
-export default MainNav
+export default MainNav;

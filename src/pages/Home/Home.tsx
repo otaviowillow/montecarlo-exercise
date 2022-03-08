@@ -1,8 +1,12 @@
-import { Grid, Box } from "@mui/material";
+import { Grid, Box } from '@mui/material';
 
-import { TopGamesByDate, TopGamesInPlatform, GameDetailsCard } from '../../components';
-import { BestsellersProvider } from "../../context";
-import { GameProvider } from "../../context/Game";
+import {
+  TopGamesByDate,
+  TopGamesInPlatform,
+  GameDetailsCard
+} from '../../components';
+import { BestsellersProvider } from '../../context';
+import { GameProvider } from '../../context/Game';
 
 const Home = (): JSX.Element => {
   return (
@@ -17,7 +21,7 @@ const Home = (): JSX.Element => {
         </Box>
       </GameProvider>
     </BestsellersProvider>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
