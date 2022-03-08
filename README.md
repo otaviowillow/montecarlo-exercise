@@ -55,7 +55,7 @@ A few architecture rules and best practices I'm following on this exercise
 * Minimizing dependencies - I'm trying to only attach dependencies that are I know are important for the current core functionality of the app that the company is using
 * State manager - I'm using Context API  with a redux oriented approach to state refreshing
 * No prop drilling - All components should have access to a state, and that state dictates what the component should react to - no higher order component, in other words. Props should only be used to initialize data.
-
+* Simple linting and prettifying
 # TODO / Improvements
 ### This needs a proper Back-end!
 For the exercise, I made the conscious decision of handling the data manipulation on the front end, trying to follow through with "Data can be stored and read from a simple JSON file" part of the instruction. In hindsight I should've just built a simple back end (even though I understand that the role is fully front end), since having it there made my life difficult with all the perfomance bottlenecks it generated (my VS Code was going nuts)
@@ -76,6 +76,5 @@ Let's start a business comparing videogame sales, what do you say?
 ## Production path
 * Proper services system
 * Localization: Using something like i8next to localize content
-* Improve test coverage
-* E2E testing: Currently only testing on jest
+* Improve test coverage (actually write)
 * Test against sonarqube / run perfomance tests on lighthouse
