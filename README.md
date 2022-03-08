@@ -18,7 +18,9 @@ To run a production build
 
 # Known Issues
 * When the user clicks to visualize a specific console data, and then clicks again to vizualize the "All Platforms" set of data, there's a perfomance drop with a page freeze. This is due to the sheer size of the JSON file the app is using.
+* The same when pressing back from a Game Details page
 * Clicking on the Pie Chart will sometimes take the user to the top of the screen
+* When the vertical bars are very low height, it's hard / impossible to read numbers
 * The **Top 15 Games by Platform** component is not scaling well in responsive views
 
 # Architecture
@@ -62,6 +64,7 @@ For the exercise, I made the conscious decision of handling the data manipulatio
 I've decided to go with Recharts since I thought it was the closest to the one I use on my day to day (highcharts, paid version) on Honeywell, but as with every chart library, there's a steep learning curve to the library. It was by far the biggest time sink in the test and I'm still unhappy with the results
 
 ## What would I do with a day or two 
+* Bug fixing, naturally.
 * More charts! More! 
 * I'd like to insert comparisons between publishers (see how they fare against each other), 
 * Change the min-max years... 

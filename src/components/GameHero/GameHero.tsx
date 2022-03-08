@@ -48,6 +48,7 @@ const GameHero = (): JSX.Element => {
         height="440"
         image={RawgGame.background_image}
         alt="Game cover"
+        sx={{ objectPosition: 'top' }}
       />
       <Container sx={title}>
         <Typography variant="h2" marginRight={2}>
