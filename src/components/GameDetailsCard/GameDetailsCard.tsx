@@ -6,7 +6,7 @@ import { Bar, BarChart, ResponsiveContainer, XAxis } from 'recharts';
 import { useBestsellersDispatch, useBestsellersState } from '../../context';
 import { useGameDispatch, useGameState } from '../../context/Game';
 import { useBestsellersService, useGameService } from '../../hooks'
-import { setGameDetails, setGameName, setPlatform, setTopGameByPlatform } from '../../store/actions';
+import { setGameDetails, setGameName, setTopGameByPlatform } from '../../store/actions';
 
 export const GameDetailsCard = () => {
   const navigate = useNavigate();

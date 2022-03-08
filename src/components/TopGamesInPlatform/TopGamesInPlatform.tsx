@@ -21,23 +21,19 @@ export const BestSellingGames = () => {
   const dispatch = useBestsellersDispatch();
   const gameDispatch = useGameDispatch();
 
-  const handleClick = ({ activeLabel = "" }: { activeLabel?: string | undefined }) => gameDispatch(setGameName(activeLabel))
+  const handleClick = ({ activeLabel = "" }: { activeLabel?: string | undefined }) => activeLabel && gameDispatch(setGameName(activeLabel))
 
   useEffect(() => {
     const fetchItem = () => {
-      const res = fetchTopByPlatform({});
+      const res = fetchTopByPlatform(platform ? { platform: platform || "" } : {});
       dispatch(setTopGamesByPlatforms(res));
     }
     if(!byPlatforms && !isFetching) fetchItem()
-  }, [isFetching, byPlatforms, dispatch])
+  }, [isFetching, byPlatforms, platform, dispatch, fetchTopByPlatform])
 
   useEffect(() => {
-    const fetchItem = () => {
-      const res = fetchTopByPlatform({ platform: platform || "" });
-      dispatch(setTopGamesByPlatforms(res));
-    }
-    if(byPlatforms && !isFetching) fetchItem()
-  }, [isFetching, platform])
+    dispatch(setTopGamesByPlatforms(null));
+  }, [platform, dispatch])
 
   if(!byPlatforms) return <LinearProgress />;
 
