@@ -1,5 +1,5 @@
 import { sanitize } from 'dompurify';
-import { useEffect } from "react"
+import { useMemo } from "react"
 import { useParams } from "react-router-dom";
 import { Avatar, Card, CardMedia, Container, Typography } from "@mui/material";
 import { blue } from '@mui/material/colors';
@@ -19,8 +19,7 @@ const GameHero = (): JSX.Element | null => {
   const { RawgGame } = useGameState();
   const dispatch = useGameDispatch();
 
-  useEffect(() => {
-    console.log(isFetching)
+  useMemo(() => {
     const fetchItem = async () => {
       const res = await fetchRawgGame({ id });
       dispatch(setGameDetails(res));
@@ -32,12 +31,7 @@ const GameHero = (): JSX.Element | null => {
 
   return (
     <Card>
-      <CardMedia
-        component="img"
-        height="440"
-        image={RawgGame.background_image}
-        alt="Game cover"
-      />
+      <CardMedia component="img" height="440" image={RawgGame.background_image} alt="Game cover" />
       <Container sx={title}>
         <Typography variant="h2" marginRight={2}>{RawgGame.name}</Typography>
         <Box sx={metaBox}>

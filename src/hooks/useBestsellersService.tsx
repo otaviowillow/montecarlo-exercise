@@ -18,7 +18,6 @@ const useGamesListService = (): IUseGamesListService => {
 
 	const fetchTopByDate = () => {
 		setIsFetching(true);
-    // Filter data below limit year (2002)
     // Reduce items to all the global sales made on EACH specific platform
     const reducedData: { [x: string]: number; } = data.reduce((result: { [x: string]: number; }, item: IBestseller) => ({
       ...result,
@@ -35,15 +34,15 @@ const useGamesListService = (): IUseGamesListService => {
 
   const fetchTopByPlatform = ({ platform }: { platform?: string }) => {
 		setIsFetching(true);
-    // Filter data below limit year (2002); if there's a platform set, also filter for specific platform
+    // Filter data  for specific platform
     const filteredData = platform ? data.filter((data: IBestseller) => data.Platform === platform) : data;
     // Reduce items to all the global sales made on ONE specific platform
     const reducedData: { [x: string]: number; } = filteredData.reduce((result: { [x: string]: number; }, item: IBestseller) => ({
       ...result,
-      [item.Name || ""]: Math.round(item.Global_Sales) + result[item.Name || ""] || Math.round(item.Global_Sales)
+      [item.Name || ""]: item.Global_Sales + result[item.Name || ""] || item.Global_Sales
     }), {});
     // Make the data friendly to recharts.js
-    const arrayData: INameAndValue[] = Object.entries(reducedData).map((entry) => ({ name: entry[0], value: entry[1] }));
+    const arrayData: INameAndValue[] = Object.entries(reducedData).map((entry) => ({ name: entry[0], value: parseFloat(entry[1].toFixed(2)) }));
     // Slice and normalize data
     const res = arrayData.sort((a, b) => a.value - b.value).reverse().slice(0, MAX_GAMES_LIMIT);
 		setIsFetching(false);

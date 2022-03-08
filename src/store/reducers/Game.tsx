@@ -25,7 +25,6 @@ const initialState: IBestseller = {
 const reducer = (state = initialState, action: GameActions = { type: null }): IBestseller => {
 	switch (action.type) {
 		case GameActionTypes.SET_GAME_DETAILS:
-      console.log(action.game);
 			return {
 				...state,
         RawgGame: action.game

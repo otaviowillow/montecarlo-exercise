@@ -1,4 +1,4 @@
-import { Card, CardActionArea, CardContent, CardMedia, LinearProgress, Typography } from '@mui/material';
+import { Card, CardActionArea, CardContent, CardMedia, Grid, LinearProgress, Typography } from '@mui/material';
 import { indigo } from '@mui/material/colors';
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { Bar, BarChart, ResponsiveContainer, XAxis } from 'recharts';
 import { useBestsellersDispatch, useBestsellersState } from '../../context';
 import { useGameDispatch, useGameState } from '../../context/Game';
 import { useBestsellersService, useGameService } from '../../hooks'
-import { setGameDetails, setGameName, setTopGameByPlatform } from '../../store/actions';
+import { setGameDetails, setGameName, setPlatform, setTopGameByPlatform } from '../../store/actions';
 
 export const GameDetailsCard = () => {
   const navigate = useNavigate();
@@ -49,36 +49,39 @@ export const GameDetailsCard = () => {
   if(!byPlatform) return null;
 
   return (
-    console.log(byPlatform),
-    <Card>
-      <CardActionArea onClick={goToDetails}>
-        {!RawgGame ? (
-          <LinearProgress />
-        ) : (
-            <CardMedia
-            component="img"
-            height="140"
-            image={RawgGame.background_image}
-            alt="Game cover"
-          />
-        )}
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {byPlatform[0].Name}
-          </Typography>
-          {byPlatform.length === 1 ? (
-            <p>{byPlatform[0].Platform} exclusive</p>
+    <Grid item xs={12} md={4}>
+      <Card>
+        <CardActionArea onClick={goToDetails}>
+          {!RawgGame ? (
+            <LinearProgress />
           ) : (
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={byPlatform}>
-                <Bar dataKey="Global_Sales" fill={indigo[400]} label />
-                <XAxis type='category' dataKey="Platform" />
-              </BarChart>
-            </ResponsiveContainer>
+              <CardMedia
+              component="img"
+              height="140"
+              image={RawgGame.background_image}
+              alt="Game cover"
+            />
           )}
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {byPlatform[0].Name}
+            </Typography>
+            {byPlatform.length === 1 ? (
+              <Typography gutterBottom variant="body1">
+                {byPlatform[0].Platform} exclusive
+              </Typography>
+            ) : (
+              <ResponsiveContainer width="100%" height={200}>
+                <BarChart data={byPlatform}>
+                  <Bar dataKey="Global_Sales" fill={indigo[400]} label />
+                  <XAxis type='category' dataKey="Platform" />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Grid>
   )
 }
 
