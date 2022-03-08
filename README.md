@@ -31,7 +31,7 @@ The app fires an event change and components react according to that change, wit
 
 In other words, I'm using a redux implementation (through ContextAPI) with an event driven philosophy.
 
-Components, hooks and handlers are single purpouse, functional and immutable - even the service hooks, which are the most complex part of the application (since they basically function like the back end in this application), I've tried to keep the side effects to just data manipulation, and even that data to be immutable and functional
+Components, hooks and handlers are single purpose, functional and immutable - even the service hooks, which are the most complex part of the application (since they basically function like the back end in this application), I've tried to keep the side effects to just data manipulation, and even that data to be immutable and functional
 
 ## Scafolding
 I went with a nested architecture folder approach instead of a flat one - since I know this is what the company uses. It's been a while since I used it though (flat structure gang here for the past few years), so hopefully it all makes sense.
