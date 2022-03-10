@@ -7,7 +7,7 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-import { Layout, Home, Game } from './pages';
+import { Layout, Home, Game, NotFound } from './pages';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -19,6 +19,7 @@ ReactDOM.render(
           <Route path="game">
             <Route path=":id" element={<Game />} />
           </Route>
+          <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
