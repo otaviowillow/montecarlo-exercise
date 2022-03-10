@@ -66,7 +66,7 @@ export const GameDetailsCard = () => {
         <CardActionArea onClick={goToDetails}>
           <GameDetailsCardHeader />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography gutterBottom variant="h5">
               {byPlatform[0].Name}
             </Typography>
             <GameDetailsCardContent />

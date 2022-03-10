@@ -19,7 +19,7 @@ ReactDOM.render(
           <Route path="game">
             <Route path=":id" element={<Game />} />
           </Route>
-          <Route path='*' element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>
